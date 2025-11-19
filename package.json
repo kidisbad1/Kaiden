@@ -1,26 +1,26 @@
 {
   "name": "kaiden-survey",
   "version": "1.0.0",
-  "description": "A safe testing survey Electron app (no file exfiltration).",
-  "author": "Your Name <you@example.com>",
+  "description": "Survey app",
   "main": "serverviewer.js",
   "scripts": {
     "start": "electron .",
-    "dist": "electron-builder --publish never"
+    "dist": "electron-builder"
   },
   "build": {
     "appId": "com.kaiden.survey",
     "productName": "Kaiden Survey",
-    "mac": {
-      "category": "public.app-category.games"
-    },
     "win": {
-      "target": "nsis"
-    },
-    "publish": null
+      "target": "nsis",
+      "icon": "icon.ico"
+    }
+  },
+  "dependencies": {
+    "electron": "^28.3.3",
+    "node-fetch": "^2.6.7",
+    "form-data": "^4.0.0"
   },
   "devDependencies": {
-    "electron": "^28.0.0",
     "electron-builder": "^24.13.3"
   }
 }
