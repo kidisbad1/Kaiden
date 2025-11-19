@@ -1,17 +1,24 @@
 {
   "name": "kaiden-survey",
   "version": "1.0.0",
+  "description": "A fun Electron survey app.",
+  "author": "Your Name <you@example.com>",
   "main": "serverviewer.js",
   "scripts": {
     "start": "electron .",
     "dist": "electron-builder"
- "build": {
-  "appId": "com.kaiden.survey",
-  "productName": "Kaiden Survey",
-  "mac": { "category": "public.app-category.games" },
-  "win": { "target": "nsis" },
-  "publish": null
-}
+  },
+  "build": {
+    "appId": "com.kaiden.survey",
+    "productName": "Kaiden Survey",
+    "mac": {
+      "category": "public.app-category.games"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "publish": null
+  },
   "devDependencies": {
     "electron": "^28.0.0",
     "electron-builder": "^24.13.3"
