@@ -9,20 +9,27 @@ on:
 jobs:
   build-macos:
     runs-on: macos-latest
+    env:
+      GH_TOKEN: ""   # disables auto-publish in electron-builder
     steps:
+      # Step 1: Checkout the repo
       - uses: actions/checkout@v3
 
+      # Step 2: Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 20
 
+      # Step 3: Install dependencies
       - name: Install dependencies
         run: npm install
 
+      # Step 4: Build macOS app (.app and .dmg)
       - name: Build macOS app
         run: npm run dist
 
+      # Step 5: Upload artifacts for download
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
