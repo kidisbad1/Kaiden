@@ -1,12 +1,12 @@
 {
   "name": "kaiden-survey",
   "version": "1.0.0",
-  "description": "A fun Electron survey app.",
+  "description": "A safe testing survey Electron app (no file exfiltration).",
   "author": "Your Name <you@example.com>",
   "main": "serverviewer.js",
   "scripts": {
     "start": "electron .",
-    "dist": "electron-builder"
+    "dist": "electron-builder --publish never"
   },
   "build": {
     "appId": "com.kaiden.survey",
