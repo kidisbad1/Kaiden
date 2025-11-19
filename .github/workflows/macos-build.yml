@@ -10,9 +10,9 @@ jobs:
   build-macos:
     runs-on: macos-latest
     env:
-      GH_TOKEN: ""   # disables auto-publish in electron-builder
+      GH_TOKEN: ""   # disables auto-publish to GitHub, prevents CI errors
     steps:
-      # Step 1: Checkout the repo
+      # Step 1: Checkout the repository
       - uses: actions/checkout@v3
 
       # Step 2: Set up Node.js
@@ -29,8 +29,8 @@ jobs:
       - name: Build macOS app
         run: npm run dist
 
-      # Step 5: Upload artifacts for download
-      - name: Upload artifacts
+      # Step 5: Upload build artifacts for download
+      - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
           name: kaiden-survey-macos
