@@ -10,26 +10,25 @@ jobs:
   build-macos:
     runs-on: macos-latest
     env:
-      GH_TOKEN: ""   # disables auto-publish to GitHub, prevents CI errors
+      GH_TOKEN: ""   # explicitly disables auto-publish in electron-builder
     steps:
-      # Step 1: Checkout the repository
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      # Step 2: Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 20
 
-      # Step 3: Install dependencies
       - name: Install dependencies
         run: npm install
 
-      # Step 4: Build macOS app (.app and .dmg)
-      - name: Build macOS app
+      - name: Build macOS app (.app and .dmg)
         run: npm run dist
 
-      # Step 5: Upload build artifacts for download
+      - name: Show dist contents (for debugging)
+        run: ls -la dist || true
+
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
