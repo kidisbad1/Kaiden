@@ -24,19 +24,19 @@ jobs:
           name: kaiden-survey-macos
           path: dist/**
 
-  build-windows:
-    runs-on: windows-latest
-    env:
-      GH_TOKEN: ""
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 20
-      - run: npm install
-      - run: npm run dist
-      - run: dir /s /b dist
-      - uses: actions/upload-artifact@v4
-        with:
-          name: kaiden-survey-windows
-          path: dist/**
+ build-windows:
+  runs-on: windows-latest
+  env:
+    GH_TOKEN: ""
+  steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 20
+    - run: npm install
+    - run: npm run dist
+    - run: Get-ChildItem -Recurse -Force dist
+    - uses: actions/upload-artifact@v4
+      with:
+        name: kaiden-survey-windows
+        path: dist/**
